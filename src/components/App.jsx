@@ -64,7 +64,7 @@ const App = () => {
 
   // fetchImages && fetchMoreImages && fetchSearchImages in one function
 
-  const universalPixabayFeatch = async () => {
+  const universalPixabayFetch = async () => {
     try {
       toggleLoading();
       const { hits: images, totalHits: totalImages } = await requestImages(
@@ -104,7 +104,7 @@ const App = () => {
   // First load page and initial default request
 
   useEffect(() => {
-    universalPixabayFeatch();
+    universalPixabayFetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -125,7 +125,7 @@ const App = () => {
 
   useEffect(() => {
     if (request.query === null) return;
-    universalPixabayFeatch();
+    universalPixabayFetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [request.query]);
 
@@ -133,7 +133,7 @@ const App = () => {
 
   useEffect(() => {
     if (request.page === 1) return;
-    universalPixabayFeatch();
+    universalPixabayFetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [request.page]);
 
