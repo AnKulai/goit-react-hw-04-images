@@ -55,8 +55,7 @@ const App = () => {
   // Determine if an image still exists in the database
 
   const checkEndPage = totalHits => {
-    // const countOfPages = totalHits / config.PER_PAGE;
-    const countOfPages = totalHits / 12;
+    const countOfPages = totalHits / 12; //  config.PER_PAGE
     const result = countOfPages < request.page;
     setProcess(prevState => {
       return { ...prevState, endOfList: result };
@@ -68,12 +67,14 @@ const App = () => {
   const universalPixabayFeatch = async () => {
     try {
       toggleLoading();
-      const { hits: images, totalHits: totalImages } = await requestImages(
-        request.query,
-        request.page
-      );
-      putImageList(images);
-      checkEndPage(totalImages);
+      // const { hits: images, totalHits: totalImages } = await requestImages(
+      //   request.query,
+      //   request.page
+      // );
+      // putImageList(images);
+      putImageList([1,2,3]);
+      // checkEndPage(totalImages);
+      checkEndPage(12331);
     } catch (error) {
       setErr(error.message);
       return err;

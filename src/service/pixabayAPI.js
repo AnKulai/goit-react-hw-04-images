@@ -6,11 +6,9 @@ let lastQuery = '';
 const requestImages = async (query, page = 1) => {
   try {
     lastQuery = query ?? lastQuery;
-    // const { data } = await axios.get(`${config.BASE_URL}`, {
-    const { data } = await axios.get(`https://pixabay.com/api/`, {
+    const { data } = await axios.get(`${config.BASE_URL}`, {
       params: {
-        // key: config.API_KEY,
-        key: `32974638-4592caedf5e0332eeb1bc81de`,
+        key: config.API_KEY,
         q: lastQuery,
         image_type: `photo`,
         orientation: `horizontal`,
