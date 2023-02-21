@@ -6,7 +6,7 @@ import Loader from './Loader/Loader';
 import Modal from './Modal/Modal';
 import Searchbar from './Searchbar/Searchbar';
 import Section from './Section/Section';
-
+ 
 const App = () => {
   const [popup, setPopup] = useState({ open: false, imageUrl: null });
   const [imageList, setImageList] = useState(null);
