@@ -15,7 +15,7 @@ const App = () => {
     page: 1,
     query: null,
   });
-  const [error, setError] = useState(null);
+  const [err, setErr] = useState(null);
   const [process, setProcess] = useState({
     isLoading: false,
     endOfList: false,
@@ -75,8 +75,8 @@ const App = () => {
       putImageList(images);
       checkEndPage(totalImages);
     } catch (error) {
-      setError(error.message);
-      return error;
+      setErr(error.message);
+      return err;
     } finally {
       toggleLoading();
     }
