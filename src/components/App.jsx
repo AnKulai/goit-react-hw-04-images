@@ -105,6 +105,7 @@ const App = () => {
 
   useEffect(() => {
     universalPixabayFeatch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Toggle popup
@@ -125,6 +126,7 @@ const App = () => {
   useEffect(() => {
     if (request.query === null) return;
     universalPixabayFeatch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [request.query]);
 
   // Pagination requests
@@ -132,6 +134,7 @@ const App = () => {
   useEffect(() => {
     if (request.page === 1) return;
     universalPixabayFeatch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [request.page]);
 
   return (
