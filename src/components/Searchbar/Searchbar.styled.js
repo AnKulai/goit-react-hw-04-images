@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-// const randomColor = () =>
-//   `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+const randomColor = () =>
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
 export const CustomHeader = styled.div`
   width: 100%;
-  /* background-color: }; */
-  background-color: red;
+  background-color: ${randomColor()};
   display: flex;
   align-items: center;
   justify-content: center;
