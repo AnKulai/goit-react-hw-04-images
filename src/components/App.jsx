@@ -105,7 +105,6 @@ const App = () => {
 
   useEffect(() => {
     universalPixabayFeatch();
-    // eslint-disable-next-line
   }, []);
 
   // Toggle popup
@@ -126,7 +125,6 @@ const App = () => {
   useEffect(() => {
     if (request.query === null) return;
     universalPixabayFeatch();
-    // eslint-disable-next-line
   }, [request.query]);
 
   // Pagination requests
@@ -134,7 +132,6 @@ const App = () => {
   useEffect(() => {
     if (request.page === 1) return;
     universalPixabayFeatch();
-    // eslint-disable-next-line
   }, [request.page]);
 
   return (
