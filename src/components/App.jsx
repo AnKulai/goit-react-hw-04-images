@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import requestImages from 'service/pixabayAPI';
+import config from './../configuration/config';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Loader from './Loader/Loader';
 import Modal from './Modal/Modal';
 import Searchbar from './Searchbar/Searchbar';
 import Section from './Section/Section';
-import config from './../configuration/config';
 
 const App = () => {
   const [popup, setPopup] = useState({ open: false, imageUrl: null });
@@ -106,6 +105,7 @@ const App = () => {
 
   useEffect(() => {
     universalPixabayFeatch();
+    // eslint-disable-next-line
   }, []);
 
   // Toggle popup
@@ -126,6 +126,7 @@ const App = () => {
   useEffect(() => {
     if (request.query === null) return;
     universalPixabayFeatch();
+    // eslint-disable-next-line
   }, [request.query]);
 
   // Pagination requests
@@ -133,6 +134,7 @@ const App = () => {
   useEffect(() => {
     if (request.page === 1) return;
     universalPixabayFeatch();
+    // eslint-disable-next-line
   }, [request.page]);
 
   return (
