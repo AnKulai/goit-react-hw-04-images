@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import requestImages from 'service/pixabayAPI';
 import config from './../configuration/config';
 import ImageGallery from './ImageGallery/ImageGallery';
-// import Loader from './Loader/Loader';
+import Loader from './Loader/Loader';
 import Modal from './Modal/Modal';
 import Searchbar from './Searchbar/Searchbar';
 import Section from './Section/Section';
@@ -103,10 +103,10 @@ const App = () => {
 
   // First load page and initial default request
 
-  // useEffect(() => {
-  //   universalPixabayFeatch();
-  //   // eslint-disable-next-line
-  // }, []);
+  useEffect(() => {
+    universalPixabayFeatch();
+    // eslint-disable-next-line
+  }, []);
 
   // Toggle popup
 
@@ -149,8 +149,7 @@ const App = () => {
             process={process}
           />
         ) : (
-          // <Loader mainLoader />
-          <></>
+          <Loader mainLoader />
         )}
       </Section>
       {popup.open && <Modal url={popup.imageUrl} />}
