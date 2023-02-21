@@ -64,22 +64,22 @@ const App = () => {
 
   // fetchImages && fetchMoreImages && fetchSearchImages in one function
 
-  const universalPixabayFeatch = async () => {
-    try {
-      toggleLoading();
-      const { hits: images, totalHits: totalImages } = await requestImages(
-        request.query,
-        request.page
-      );
-      putImageList(images);
-      checkEndPage(totalImages);
-    } catch (error) {
-      setErr(error.message);
-      return err;
-    } finally {
-      toggleLoading();
-    }
-  };
+  // const universalPixabayFeatch = async () => {
+  //   try {
+  //     toggleLoading();
+  //     const { hits: images, totalHits: totalImages } = await requestImages(
+  //       request.query,
+  //       request.page
+  //     );
+  //     putImageList(images);
+  //     checkEndPage(totalImages);
+  //   } catch (error) {
+  //     setErr(error.message);
+  //     return err;
+  //   } finally {
+  //     toggleLoading();
+  //   }
+  // };
 
   // Popup controller (open / close)
 
@@ -103,10 +103,10 @@ const App = () => {
 
   // First load page and initial default request
 
-  useEffect(() => {
-    universalPixabayFeatch();
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   universalPixabayFeatch();
+  //   // eslint-disable-next-line
+  // }, []);
 
   // Toggle popup
 
@@ -123,19 +123,19 @@ const App = () => {
 
   // Search request by query
 
-  useEffect(() => {
-    if (request.query === null) return;
-    universalPixabayFeatch();
-    // eslint-disable-next-line
-  }, [request.query]);
+  // useEffect(() => {
+  //   if (request.query === null) return;
+  //   universalPixabayFeatch();
+  //   // eslint-disable-next-line
+  // }, [request.query]);
 
   // Pagination requests
 
-  useEffect(() => {
-    if (request.page === 1) return;
-    universalPixabayFeatch();
-    // eslint-disable-next-line
-  }, [request.page]);
+  // useEffect(() => {
+  //   if (request.page === 1) return;
+  //   universalPixabayFeatch();
+  //   // eslint-disable-next-line
+  // }, [request.page]);
 
   return (
     <>
