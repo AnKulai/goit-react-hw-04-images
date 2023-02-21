@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-// import requestImages from 'service/pixabayAPI';
-// import config from './../configuration/config';
+import requestImages from 'service/pixabayAPI';
+import config from './../configuration/config';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Loader from './Loader/Loader';
 import Modal from './Modal/Modal';
@@ -55,7 +55,7 @@ const App = () => {
   // Determine if an image still exists in the database
 
   const checkEndPage = totalHits => {
-    const countOfPages = totalHits / 12; //  config.PER_PAGE
+    const countOfPages = totalHits / config.PER_PAGE;
     const result = countOfPages < request.page;
     setProcess(prevState => {
       return { ...prevState, endOfList: result };
@@ -67,14 +67,12 @@ const App = () => {
   const universalPixabayFeatch = async () => {
     try {
       toggleLoading();
-      // const { hits: images, totalHits: totalImages } = await requestImages(
-      //   request.query,
-      //   request.page
-      // );
-      // putImageList(images);
-      putImageList([1,2,3]);
-      // checkEndPage(totalImages);
-      checkEndPage(12331);
+      const { hits: images, totalHits: totalImages } = await requestImages(
+        request.query,
+        request.page
+      );
+      putImageList(images);
+      checkEndPage(totalImages);
     } catch (error) {
       setErr(error.message);
       return err;
